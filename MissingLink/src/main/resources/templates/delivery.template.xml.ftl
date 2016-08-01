@@ -30,6 +30,14 @@
 			</file>
 		</configurationSet>
 	</configurations>
+	<changemanagement type="standard|normal|emergency">
+		<affectedSystems>
+			<infrastructure value="Yes|No"/>
+			<infrastructure-config value="Yes|No"/>
+			<application value="Yes|No"/>
+			<application-config value="Yes|No"/>
+		</affectedSystems>
+    </changemanagement>
 	<documentation>
 		<releaseNotes></releaseNotes>
 		<installationManual></installationManual>
