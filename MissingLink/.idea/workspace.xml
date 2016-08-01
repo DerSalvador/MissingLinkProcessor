@@ -665,7 +665,7 @@
       <workItem from="1470067788342" duration="122000" />
       <workItem from="1470067921022" duration="63000" />
       <workItem from="1470067987000" duration="82000" />
-      <workItem from="1470068079218" duration="2369000" />
+      <workItem from="1470068079218" duration="2374000" />
     </task>
     <task id="LOCAL-00001" summary="Push workspace.xml">
       <created>1470056641222</created>
@@ -703,11 +703,17 @@
       <option name="project" value="LOCAL" />
       <updated>1470072130011</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added container section in delivery.xml">
+      <created>1470072135224</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1470072135224</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5627000" />
+    <option name="totallyTimeSpent" value="5632000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="73" y="25" width="1793" height="1009" extended-state="0" />
