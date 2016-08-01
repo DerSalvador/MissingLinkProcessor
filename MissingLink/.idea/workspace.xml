@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d922bbf7-d12c-4ecf-8c82-392ae7a3c37f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/delivery.template.xml.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/delivery.template.xml.ftl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MissingLinkProcessor.iws" />
@@ -666,7 +665,7 @@
       <workItem from="1470067788342" duration="122000" />
       <workItem from="1470067921022" duration="63000" />
       <workItem from="1470067987000" duration="82000" />
-      <workItem from="1470068079218" duration="2356000" />
+      <workItem from="1470068079218" duration="2369000" />
     </task>
     <task id="LOCAL-00001" summary="Push workspace.xml">
       <created>1470056641222</created>
@@ -698,11 +697,17 @@
       <option name="project" value="LOCAL" />
       <updated>1470071975010</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added container section in delivery.xml">
+      <created>1470072130011</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1470072130011</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5614000" />
+    <option name="totallyTimeSpent" value="5627000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="73" y="25" width="1793" height="1009" extended-state="0" />
@@ -759,7 +764,8 @@
     <MESSAGE value="Push workspace.xml" />
     <MESSAGE value="Refactored Classes and Filenames" />
     <MESSAGE value="added changemanagement section in delivery.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="added changemanagement section in delivery.xml" />
+    <MESSAGE value="added container section in delivery.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="added container section in delivery.xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
