@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d922bbf7-d12c-4ecf-8c82-392ae7a3c37f" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/templates/deliverylocationlookup-template.xml" afterPath="$PROJECT_DIR$/src/main/resources/templates/MissingLinklocationlookup-template.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MissingLinkProcessor.iws" />
@@ -35,11 +36,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="delivery.template.xml.ftl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="delivery.template.xml.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/delivery.template.xml.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8265896" vertical-offset="216" max-vertical-offset="840">
+            <state vertical-scroll-proportion="-17.875" vertical-offset="216" max-vertical-offset="840">
               <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MissingLinklocationlookup-template.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/MissingLinklocationlookup-template.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="556">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -665,7 +676,7 @@
       <workItem from="1470067788342" duration="122000" />
       <workItem from="1470067921022" duration="63000" />
       <workItem from="1470067987000" duration="82000" />
-      <workItem from="1470068079218" duration="2374000" />
+      <workItem from="1470068079218" duration="2431000" />
     </task>
     <task id="LOCAL-00001" summary="Push workspace.xml">
       <created>1470056641222</created>
@@ -709,11 +720,17 @@
       <option name="project" value="LOCAL" />
       <updated>1470072135224</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added container section in delivery.xml">
+      <created>1470072141023</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1470072141023</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5632000" />
+    <option name="totallyTimeSpent" value="5689000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="73" y="25" width="1793" height="1009" extended-state="0" />
@@ -852,8 +869,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/delivery.template.xml.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8265896" vertical-offset="216" max-vertical-offset="840">
+        <state vertical-scroll-proportion="-17.875" vertical-offset="216" max-vertical-offset="840">
           <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/MissingLinklocationlookup-template.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="556">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
