@@ -4,7 +4,7 @@ import java.nio.charset.Charset
 import java.util
 import java.util.Calendar
 import ch.bjb.MissingLinkProcessor.LocalPropertiesLocator
-import ch.bjb.MissingLinkProcessor.configuration.DeliveryProcessorModell
+import ch.bjb.MissingLinkProcessor.configuration.MissingLinkProcessorModell
 import ch.bjb.MissingLinkProcessor.framework.ARAWebserviceWrapper
 import ch.bjb.MissingLinkProcessor.model._
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -24,16 +24,16 @@ class BDDTests extends FlatSpec with Matchers {
     // Static class initialization
     val localPropertiesLocator: LocalPropertiesLocator = null
     var charset: Charset = null
-    var deliveryProcessorModell: DeliveryProcessorModell = null
+    var missinLinkProcessorModell: MissingLinkProcessorModell = null
     val fileList: List[String] = null
     val logger = LoggerFactory.getLogger(classOf[BDDTests])
-    val CONFIG_FILE =  "../src/main/resources/DeliveryProcessor.DEV.yml"
+    val CONFIG_FILE =  "../src/main/resources/MissingLink.DEV.yml"
     //Load configuration from config file
     val yamlFile: File = new File(CONFIG_FILE)
     logger.info(scala.io.Source.fromFile(CONFIG_FILE).mkString)
     val mapper: ObjectMapper = new ObjectMapper(new YAMLFactory)
     try {
-        deliveryProcessorModell = mapper.readValue(yamlFile, classOf[DeliveryProcessorModell])
+        missinLinkProcessorModell = mapper.readValue(yamlFile, classOf[MissingLinkProcessorModell])
     }
     catch {
         case e: Exception => {
@@ -41,8 +41,8 @@ class BDDTests extends FlatSpec with Matchers {
             System.exit(1)
         }
     }
-    charset = Charset.forName(deliveryProcessorModell.getCharset)
-    val ara = new ARAWebserviceWrapper(deliveryProcessorModell)
+    charset = Charset.forName(missinLinkProcessorModell.getCharset)
+    val ara = new ARAWebserviceWrapper(missinLinkProcessorModell)
 
     private val runTemplate1: String = runTemplate(bWithMissing = true)
     runTemplate1 should include regex  "missing"
@@ -58,7 +58,7 @@ class BDDTests extends FlatSpec with Matchers {
     }
 
     "Application path should exist " {
-        val ara = new ARAWebserviceWrapper(deliveryProcessorModell)
+        val ara = new ARAWebserviceWrapper(missinLinkProcessorModell)
         val b: Boolean  = ara.checkExistance("Applications/DerSalvador/FWT/abs/13.3.0.BJB.12");
         b shouldBe(true)
         0
@@ -66,7 +66,7 @@ class BDDTests extends FlatSpec with Matchers {
 
     "SSL localhost should be created " {
         val SSL_Host_ID = "TEST/Test-SSH-LOCALHOST_" + Calendar.getInstance().getTimeInMillis
-        val ara = new ARAWebserviceWrapper(deliveryProcessorModell)
+        val ara = new ARAWebserviceWrapper(missinLinkProcessorModell)
         val res = ara.createDirectory(ARAWebserviceWrapper.XLD_CI_INFRASTRUCTURE,"TEST")
         val sl = ara.createSSHLocalHost(SSL_Host_ID).toSet
         for (s <- sl) logger.info(s)
@@ -74,7 +74,7 @@ class BDDTests extends FlatSpec with Matchers {
     }
 
     "SSL host should be created " {
-        val ara = new ARAWebserviceWrapper(deliveryProcessorModell)
+        val ara = new ARAWebserviceWrapper(missinLinkProcessorModell)
         val res = ara.createDirectory(ARAWebserviceWrapper.XLD_CI_INFRASTRUCTURE,"TEST")
         val sshhostname: String = "TEST-SSH-HOST-" + Random.nextInt.toString
         val sshhostCreateCommand: String = ARAWebserviceWrapper.CREATE_UNIX_INFRASTRUCTURE_OVERTHERE_SSHHOST.replace("${SSH_HOSTNAME}", sshhostname).replace("${PATH}","TEST/"+sshhostname)

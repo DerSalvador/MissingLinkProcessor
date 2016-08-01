@@ -1,6 +1,6 @@
 package ch.bjb.MissingLinkProcessor;
 
-import ch.bjb.MissingLinkProcessor.configuration.DeliveryProcessorModell;
+import ch.bjb.MissingLinkProcessor.configuration.MissingLinkProcessorModell;
 import ch.bjb.MissingLinkProcessor.dictionaryprocessor.XLDeployDictionaryProcessor;
 import ch.bjb.MissingLinkProcessor.fileprocessors.*;
 import ch.bjb.MissingLinkProcessor.framework.ARAWebserviceWrapper;
@@ -71,7 +71,7 @@ public class Processor
 	
 	Charset charset;
 	
-	DeliveryProcessorModell deliveryProcessorModell;
+	MissingLinkProcessorModell MissingLinkProcessorModell;
 	
 	List<String> fileList;
 
@@ -220,8 +220,8 @@ public class Processor
 		ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
 		try 
 		{
-	        deliveryProcessorModell = mapper.readValue(yamlFile, DeliveryProcessorModell.class);
-			ara = new ARAWebserviceWrapper(deliveryProcessorModell);
+	        MissingLinkProcessorModell = mapper.readValue(yamlFile, MissingLinkProcessorModell.class);
+			ara = new ARAWebserviceWrapper(MissingLinkProcessorModell);
 
 		}
 		catch (Exception e) 
@@ -229,7 +229,7 @@ public class Processor
 	        log.fatal("unable to process config file, exiting",e);
 	        System.exit(1);
         }
-		charset =  Charset.forName(deliveryProcessorModell.getCharset());
+		charset =  Charset.forName(MissingLinkProcessorModell.getCharset());
 	}
 	
 	/**
@@ -558,7 +558,7 @@ public class Processor
 		{
 			boolean success = (new java.io.File(directoryToBeCreated)).mkdirs();
 
-			if(deployable.getType().equalsIgnoreCase("file.Folder") && extension.equalsIgnoreCase("gz") && deliveryProcessorModell.isRepackTGZ())
+			if(deployable.getType().equalsIgnoreCase("file.Folder") && extension.equalsIgnoreCase("gz") && MissingLinkProcessorModell.isRepackTGZ())
 			{
 				log.info("need to repack " + deployable.getFile() + " to ZIP File");
 				repack(new File(OUTPUT_FOLDER + File.separatorChar + deployable.getFile()),new File(workingdir + File.separatorChar + deployable.getName()),filename);
@@ -794,14 +794,14 @@ public class Processor
 				}
 
 				// work on deployables, need to change the file attribute for file.Folder with tar.gz files when repackTGZ is true
-				if(deployable.getType().equalsIgnoreCase("file.Folder") && FilenameUtils.getExtension(deployable.getFile()).equalsIgnoreCase("gz") && deliveryProcessorModell.isRepackTGZ())
+				if(deployable.getType().equalsIgnoreCase("file.Folder") && FilenameUtils.getExtension(deployable.getFile()).equalsIgnoreCase("gz") && MissingLinkProcessorModell.isRepackTGZ())
 				{
 					log.info("need to change the name of the file to as it was repacked to zip " + deployable.getFile());
 					deployable.updateFile(deployable.getFile() + ".zip");
 				}
 
 
-				if(deliveryProcessorModell.isCreateUniqeNameForFiles())
+				if(MissingLinkProcessorModell.isCreateUniqeNameForFiles())
 				{
 					if(configurationsPerDeployalesPerGroup != null && configurationsPerDeployalesPerGroup.size()>0)
 					{
@@ -844,16 +844,16 @@ public class Processor
 			//upload package to server
 			if(UPLOAD_TO_DEPLOYMENTOOL)
 			{
-				XLDeployDeployablePackageUploader deployablePackageUploader = new XLDeployDeployablePackageUploader(deliveryProcessorModell);
+				XLDeployDeployablePackageUploader deployablePackageUploader = new XLDeployDeployablePackageUploader(MissingLinkProcessorModell);
 				
-				log.info("uploading file " + groupid + "-" + delivery.getVersion() + DEPLOYABLE_PACKAGE_FILE_EXTENSION + " - " + targetDeployablePackageFileName + " to server " + deliveryProcessorModell.getXldeploy().getURL() + " with user " + deliveryProcessorModell.getXldeploy().getUser());
+				log.info("uploading file " + groupid + "-" + delivery.getVersion() + DEPLOYABLE_PACKAGE_FILE_EXTENSION + " - " + targetDeployablePackageFileName + " to server " + MissingLinkProcessorModell.getXldeploy().getURL() + " with user " + MissingLinkProcessorModell.getXldeploy().getUser());
 				try 
 				{
 	                String result = deployablePackageUploader.uploadDepoyablePackage(groupid + "-"+ delivery.getVersion() + DEPLOYABLE_PACKAGE_FILE_EXTENSION, targetDeployablePackageFileName);
 					if (result.indexOf("token=") > 0 )
 					{
 						// Create JIRA Deployment Ticket on successful upload
-						createJIRADeploymentTicket(delivery, deliveryProcessorModell, ListOfdeployablesPerGroup);
+						createJIRADeploymentTicket(delivery, MissingLinkProcessorModell, ListOfdeployablesPerGroup);
 					}
 					else
 					{
@@ -871,10 +871,10 @@ public class Processor
 		}
 		
 		
-		if(deliveryProcessorModell.isAdjustDictionary())
+		if(MissingLinkProcessorModell.isAdjustDictionary())
 		{
 			
-			XLDeployDictionaryProcessor dictionaryProcessor = new XLDeployDictionaryProcessor(deliveryProcessorModell);
+			XLDeployDictionaryProcessor dictionaryProcessor = new XLDeployDictionaryProcessor(MissingLinkProcessorModell);
 			log.info(dictionaryProcessor.validateDictionaries("Environments/" + localPropertiesLocator.getApplicationPathForARATool(),delivery.getConfigurations()));
 			
 			//create initial dictionary and compare it with the latest one in the deployment tool (as a start XLDeploy)
@@ -887,7 +887,7 @@ public class Processor
 		log.info("vendor delivery package processed in " + (System.currentTimeMillis() - start) + " ms");
 		
 	}
-	private void createJIRADeploymentTicket(VendorDelivery delivery, DeliveryProcessorModell deliveryProcessorModell, List<Deployable> ListOfdeployablesPerGroup) throws FileNotFoundException {
+	private void createJIRADeploymentTicket(VendorDelivery delivery, MissingLinkProcessorModell MissingLinkProcessorModell, List<Deployable> ListOfdeployablesPerGroup) throws FileNotFoundException {
 		// ./createDeploymentTicket.sh Summay AppDerSalvador AT '10.10.2017 10:10' Environments/DerSalvador/FWT/AT3 Applications/DerSalvador/FWT/abs/13.3.0.BJB.12
 		int iExitValue;
 		String sCommandString;

@@ -20,7 +20,7 @@ import javax.xml.bind.DatatypeConverter;
 import ch.bjb.MissingLinkProcessor.model.DeployableFile;
 import org.apache.commons.io.IOUtils;
 
-import ch.bjb.MissingLinkProcessor.configuration.DeliveryProcessorModell;
+import ch.bjb.MissingLinkProcessor.configuration.MissingLinkProcessorModell;
 import ch.bjb.MissingLinkProcessor.deployablepackageuploader.BaseARAConnector;
 import ch.bjb.MissingLinkProcessor.model.Ci;
 import ch.bjb.MissingLinkProcessor.model.ConfigurationSet;
@@ -195,7 +195,7 @@ public class XLDeployDictionaryProcessor extends BaseARAConnector {
 	 *
 	 * @param configuration
 	 */
-	public XLDeployDictionaryProcessor(DeliveryProcessorModell configuration) {
+	public XLDeployDictionaryProcessor(MissingLinkProcessorModell configuration) {
 		super();
 		this.user = configuration.getXldeploy().getUser();
 		this.password = configuration.getXldeploy().getPassword();

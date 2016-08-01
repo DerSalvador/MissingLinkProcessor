@@ -7,7 +7,7 @@ package ch.bjb.MissingLinkProcessor.configuration;
  * @author u37792
  * @version  $Revision: #18 $, $Date: 2016/07/13 $
  */
-public class DeliveryProcessorModell 
+public class MissingLinkProcessorModell
 {
 
 	boolean repackTGZ = false;
@@ -20,10 +20,10 @@ public class DeliveryProcessorModell
 
 	/**
 	 * 
-	 * Creates a new <code>DeliveryProcessorModell</code> instance.
+	 * Creates a new <code>MissingLinkProcessorModell</code> instance.
 	 *
 	 */
-	public DeliveryProcessorModell() {
+	public MissingLinkProcessorModell() {
 	    super();
 	    // TODO Auto-generated constructor stub
     }

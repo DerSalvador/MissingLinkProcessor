@@ -17,7 +17,7 @@ import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
-import ch.bjb.MissingLinkProcessor.configuration.DeliveryProcessorModell;
+import ch.bjb.MissingLinkProcessor.configuration.MissingLinkProcessorModell;
 import ch.bjb.MissingLinkProcessor.configuration.XLDeploy;
 import ch.bjb.MissingLinkProcessor.deployablepackageuploader.BaseARAConnector;
 import org.apache.logging.log4j.LogManager;
@@ -50,7 +50,7 @@ public class XLDeployDeployablePackageUploader extends BaseARAConnector
 	 *
 	 * @param configuration
 	 */
-	public XLDeployDeployablePackageUploader(DeliveryProcessorModell configuration) 
+	public XLDeployDeployablePackageUploader(MissingLinkProcessorModell configuration)
 	{
 	    super();
 	    this.user = configuration.getXldeploy().getUser();

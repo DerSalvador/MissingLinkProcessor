@@ -1,6 +1,6 @@
 package ch.bjb.MissingLinkProcessor.framework;
 
-import ch.bjb.MissingLinkProcessor.configuration.DeliveryProcessorModell;
+import ch.bjb.MissingLinkProcessor.configuration.MissingLinkProcessorModell;
 import ch.bjb.MissingLinkProcessor.deployablepackageuploader.BaseARAConnector;
 import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
@@ -55,7 +55,7 @@ public class ARAWebserviceWrapper extends BaseARAConnector {
 	 *
 	 * @param configuration
 	 */
-	public ARAWebserviceWrapper(DeliveryProcessorModell configuration) {
+	public ARAWebserviceWrapper(MissingLinkProcessorModell configuration) {
 		super();
 		this.user = configuration.getXldeploy().getUser();
 		this.password = configuration.getXldeploy().getPassword();

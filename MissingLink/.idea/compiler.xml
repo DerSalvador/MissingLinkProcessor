@@ -23,6 +23,9 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="MissingLinkProcessor" />
+        <module name="MissingLinkProcessor-BDDTests" />
+        <module name="MissingLinkProcessor-BDDTests (1)" />
+        <module name="MissingLinkProcessor-BDDTests (2)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

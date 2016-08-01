@@ -194,7 +194,7 @@ public class PropertyFileProcessor  extends BaseFileProcessor
 					}
 				}
 				log.info("Storing property file " + workingDir + File.separatorChar + file.getName() + File.separatorChar + file.getName());
-	            prop.store(Files.newBufferedWriter(new File(workingDir + File.separatorChar + file.getName() + File.separatorChar + file.getName()).toPath(),charset), "Property file tokenized by Deliveryprocessor");
+	            prop.store(Files.newBufferedWriter(new File(workingDir + File.separatorChar + file.getName() + File.separatorChar + file.getName()).toPath(),charset), "Property file tokenized by MissingLinkProcessor");
             }
 			catch (IOException e1) 
 			{
