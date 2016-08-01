@@ -1,0 +1,20 @@
+<deliveryLocationLookup application="DerSalvador-all" path="DerSalvador/FWT/">
+	<localPropertyContainer deployable="DerSalvador-web" file="DerSalvador.ear">
+		<targetPath>/var/tmp</targetPath>
+		<targetPathCreate>true</targetPathCreate>
+		<scanPlaceholders>false</scanPlaceholders>
+		<targetFileName></targetFileName>
+	</localPropertyContainer> 
+	<localPropertyContainer deployable="DerSalvador-tools" file="DerSalvador-tools-13.3.0-unix.tar.gz">
+		<targetPath>/var/tmp</targetPath>
+		<targetPathCreate>true</targetPathCreate>
+		<scanPlaceholders>false</scanPlaceholders>
+		<targetFileName></targetFileName>
+	</localPropertyContainer> 
+	<localPropertyContainer deployable="DerSalvador-db" file="sql.zip">
+		<targetPath>/var/tmp</targetPath>
+		<targetPathCreate>true</targetPathCreate>
+		<scanPlaceholders>false</scanPlaceholders>
+		<targetFileName></targetFileName>
+	</localPropertyContainer> 
+</deliveryLocationLookup>
