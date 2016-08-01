@@ -39,8 +39,8 @@
       <file leaf-file-name="delivery.template.xml.ftl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/delivery.template.xml.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7109827" vertical-offset="216" max-vertical-offset="765">
-              <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.8265896" vertical-offset="216" max-vertical-offset="840">
+              <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -666,7 +666,7 @@
       <workItem from="1470067788342" duration="122000" />
       <workItem from="1470067921022" duration="63000" />
       <workItem from="1470067987000" duration="82000" />
-      <workItem from="1470068079218" duration="2180000" />
+      <workItem from="1470068079218" duration="2356000" />
     </task>
     <task id="LOCAL-00001" summary="Push workspace.xml">
       <created>1470056641222</created>
@@ -692,11 +692,17 @@
       <option name="project" value="LOCAL" />
       <updated>1470069109973</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added changemanagement section in delivery.xml">
+      <created>1470071975010</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1470071975010</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5438000" />
+    <option name="totallyTimeSpent" value="5614000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="73" y="25" width="1793" height="1009" extended-state="0" />
@@ -752,7 +758,8 @@
     <option name="SHOW_DIRTY_RECURSIVELY" value="true" />
     <MESSAGE value="Push workspace.xml" />
     <MESSAGE value="Refactored Classes and Filenames" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored Classes and Filenames" />
+    <MESSAGE value="added changemanagement section in delivery.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="added changemanagement section in delivery.xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -833,8 +840,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/delivery.template.xml.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7109827" vertical-offset="216" max-vertical-offset="765">
-          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.8265896" vertical-offset="216" max-vertical-offset="840">
+          <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
           <folding />
         </state>
       </provider>

@@ -38,6 +38,11 @@
 			<application-config value="Yes|No"/>
 		</affectedSystems>
     </changemanagement>
+	<container>
+		<docker url=""/>
+		<vagrant url=""/>
+		<otto url=""/>
+	</container>
 	<documentation>
 		<releaseNotes></releaseNotes>
 		<installationManual></installationManual>
