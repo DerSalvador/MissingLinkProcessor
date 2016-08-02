@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d922bbf7-d12c-4ecf-8c82-392ae7a3c37f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="d922bbf7-d12c-4ecf-8c82-392ae7a3c37f" name="Default" comment="" />
     <ignored path="MissingLinkProcessor.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -616,7 +614,7 @@
       <workItem from="1470068079218" duration="4023000" />
       <workItem from="1470085400162" duration="1194000" />
       <workItem from="1470087640469" duration="735000" />
-      <workItem from="1470092597501" duration="63000" />
+      <workItem from="1470092597501" duration="639000" />
     </task>
     <task id="LOCAL-00001" summary="Push workspace.xml">
       <created>1470056641222</created>
@@ -676,7 +674,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9273000" />
+    <option name="totallyTimeSpent" value="9849000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="73" y="25" width="1793" height="1009" extended-state="0" />
