@@ -59,7 +59,7 @@ class BDDTests extends FlatSpec with Matchers {
 
     "Application path should exist " {
         val ara = new ARAWebserviceWrapper(missinLinkProcessorModell)
-        val b: Boolean  = ara.checkExistance("Applications/DerSalvador/FWT/abs/13.3.0.BJB.12");
+        val b: Boolean  = ara.checkExistance("Applications/DerSalvador/DER/abs/13.3.0.BJB.12");
         b shouldBe(true)
         0
     }
@@ -111,7 +111,7 @@ class BDDTests extends FlatSpec with Matchers {
     }
 
     "Change Content of an Tar Gz file in the archive" {
-        val sToolsGzip: String = "src/test/scala/resources/DerSalvador-tools-13.3.2-unix.tar.gz"
+        val sToolsGzip: String = "src/test/scala/resources/DerSalvador-tools-1.0-unix.tar.gz"
         val gzipInputStream = new GzipCompressorInputStream(new FileInputStream(new File(sToolsGzip)))
         val uncompressedFilename = unGzip(sToolsGzip)
         val tarArchive = new TarArchiveInputStream(new FileInputStream(new File(uncompressedFilename )))
@@ -167,7 +167,7 @@ class BDDTests extends FlatSpec with Matchers {
         model.put("version","13.3.0")
         if (!bWithMissing)
             model.put("tag","tag")
-        model.put("APPLICATION_PATH","DerSalvador/FWT")
+        model.put("APPLICATION_PATH","DerSalvador/DER")
         val configfile = new DeployableFile(1,"/var/tmp/configfile.properties","configile.properties",util.Arrays.asList(new Ci("key", new Value("String", "value"))))
         configfile.setTargetFileName("targetConfigFilename")
         configfile.setTargetPath("/u01/app/DerSalvador")

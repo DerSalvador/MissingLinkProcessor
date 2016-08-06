@@ -5,7 +5,7 @@
             <!--PatternLayout pattern="%highlight{%d %-5p} [%t] %C{2} (%F:%L) - %m%n"/-->
             <PatternLayout pattern="%d %highlight{%-5p} [%t] - %m%n"/>
         </Console>
-        <File name="TEMP" fileName="${env:DEPLT_HOME}/log/MissingLinkProcessor.log">
+        <File name="TEMP" fileName="${env:DERSALVADOR_HOME}/log/MissingLinkProcessor.log">
             <PatternLayout pattern="%d %-5p [%t] - %m%n"/>
             <!--PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n"/-->
         </File>

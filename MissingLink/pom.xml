@@ -211,7 +211,7 @@
 
 							<p4jtag
 									label="${project.artifactId}-${project.version}"
-									files="//foafc/product/DEPLT/deploymentautomation/MissingLinkProcessor/..."
+									files="//DERSALVADOR/product/DERSALVADOR/deploymentautomation/MissingLinkProcessor/..."
 									/>
 
 						</target>

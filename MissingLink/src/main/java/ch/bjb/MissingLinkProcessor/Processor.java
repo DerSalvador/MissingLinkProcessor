@@ -441,7 +441,7 @@ public class Processor
 			String appPath = localPropertiesLocator.getApplicationPathForARATool() + generateDeploymentApplicationPackageNameFromDeployables(ListOfdeployablesPerGroup);
 			List<String> res = ara.callRESTApiDELETEApplication(ARAWebserviceWrapper.XLD_CI_APPLICATIONS, appPath, version);
 			log.info("Response from ARA Tool from DELETE App: " + appPath + " = " + res.toString());
-			// Repository entity Applications/DerSalvador/FWT/DerSalvador-fwt-web/13.3.2 is still referenced by Applications/DerSalvador/FWT/CompositePackages/13.3.2
+			// Repository entity Applications/DerSalvador/DER/DerSalvador-der-web/1.0 is still referenced by Applications/DerSalvador/DER/CompositePackages/1.0
 			Optional.ofNullable(res.toString()).filter(s -> s.toUpperCase().contains("SUCCESSFUL")).orElseThrow(new Supplier<RuntimeException>() {
 				@Override
 				public RuntimeException get() {
@@ -888,7 +888,7 @@ public class Processor
 		
 	}
 	private void createJIRADeploymentTicket(VendorDelivery delivery, MissingLinkProcessorModell MissingLinkProcessorModell, List<Deployable> ListOfdeployablesPerGroup) throws FileNotFoundException {
-		// ./createDeploymentTicket.sh Summay AppDerSalvador AT '10.10.2017 10:10' Environments/DerSalvador/FWT/AT3 Applications/DerSalvador/FWT/abs/13.3.0.BJB.12
+		// ./createDeploymentTicket.sh Summay AppDerSalvador AT '10.10.2017 10:10' Environments/DerSalvador/DER/AT3 Applications/DerSalvador/DER/abs/13.3.0.BJB.12
 		int iExitValue;
 		String sCommandString;
 		Optional<String> foa_dep_home = Optional.ofNullable(System.getenv("FOA_DEP_HOME"));

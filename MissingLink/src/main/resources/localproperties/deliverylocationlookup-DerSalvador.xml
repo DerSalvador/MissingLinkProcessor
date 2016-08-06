@@ -1,4 +1,4 @@
-<deliveryLocationLookup application="DerSalvador-all" path="DerSalvador/FWT/">
+<deliveryLocationLookup application="DerSalvador-all" path="DerSalvador/DER/">
 	<localPropertyContainer deployable="DerSalvador-web" file="DerSalvador.ear">
 		<targetPath>/var/tmp</targetPath>
 		<targetPathCreate>true</targetPathCreate>
