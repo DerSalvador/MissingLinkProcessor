@@ -1,0 +1,410 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.dersalvador.deploymentautomation.integration</groupId>
+  <artifactId>MissingLinkProcessor</artifactId>
+  <version>0.0.13-RC3</version>
+  <packaging>jar</packaging>
+
+  <name>MissingLinkProcessor</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jdk.version>1.8</jdk.version>
+    <jackson-2-version>2.6.4</jackson-2-version>
+    <CONFIG_FILE></CONFIG_FILE>
+    <NEXUS_PATH></NEXUS_PATH>
+	<WORKDIR>/var/tmp/${env.USER}</WORKDIR>
+  </properties>
+
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<!--url>scp://repo/maven2</url-->
+			<layout>default</layout>
+			<id>dersalvadorRepo</id>
+			<name>dersalvador Internal Mirror.</name>
+			<url>http://localhost/maven-proxy/repository/dersalvador-releases</url>
+		</repository>
+	</distributionManagement>
+
+
+  <dependencies>
+	  <!-- http://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+	  <dependency>
+		  <groupId>org.apache.logging.log4j</groupId>
+		  <artifactId>log4j-core</artifactId>
+		  <version>2.5</version>
+	  </dependency>
+	  <!-- http://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+	  <dependency>
+		  <groupId>org.apache.logging.log4j</groupId>
+		  <artifactId>log4j-api</artifactId>
+		  <version>2.5</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>com.lmax</groupId>
+		  <artifactId>disruptor</artifactId>
+		  <version>3.0.1</version>
+	  </dependency>
+	  <!--dependency>
+		  <groupId>com.jcabi</groupId>
+		  <artifactId>jcabi-log</artifactId>
+		  <version>0.17.1</version>
+	  </dependency-->
+	  <dependency>
+		  <groupId>org.apache.commons</groupId>
+		  <artifactId>commons-compress</artifactId>
+		  <version>1.8</version>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>org.apache.commons</groupId>
+		  <artifactId>commons-exec</artifactId>
+		  <version>1.3</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.joda</groupId>
+		  <artifactId>joda-convert</artifactId>
+		  <version>1.3</version>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>org.scalactic</groupId>
+		  <artifactId>scalactic_2.11</artifactId>
+		  <version>2.2.6</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.scalatest</groupId>
+		  <artifactId>scalatest_2.11</artifactId>
+		  <version>2.2.6</version>
+		  <scope>test</scope>
+	  </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+    	<groupId>commons-logging</groupId>
+    	<artifactId>commons-logging</artifactId>
+    	<version>1.2</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.apache.commons</groupId>
+    	<artifactId>commons-vfs2</artifactId>
+    	<version>2.0</version>
+    </dependency>
+    <dependency>
+    	<groupId>commons-io</groupId>
+    	<artifactId>commons-io</artifactId>
+    	<version>2.4</version>
+    </dependency>
+    <dependency>
+    	<groupId>commons-cli</groupId>
+    	<artifactId>commons-cli</artifactId>
+    	<version>1.3.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.freemarker</groupId>
+    	<artifactId>freemarker</artifactId>
+    	<version>2.3.23</version>
+    </dependency>
+    <dependency>
+    	<groupId>javax.ws.rs</groupId>
+    	<artifactId>javax.ws.rs-api</artifactId>
+    	<version>2.0.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.glassfish.jersey.core</groupId>
+    	<artifactId>jersey-client</artifactId>
+    	<version>2.22.1</version>
+    </dependency>
+	<!-- the core, which includes Streaming API, shared low-level abstractions (but NOT data-binding) -->
+	 <dependency>
+	   <groupId>com.fasterxml.jackson.core</groupId>
+	   <artifactId>jackson-core</artifactId>
+	   <version>${jackson-2-version}</version>
+	 </dependency>
+	<!-- databinding; ObjectMapper, JsonNode and related classes are here -->
+	<dependency>
+	  <groupId>com.fasterxml.jackson.core</groupId>
+	  <artifactId>jackson-databind</artifactId>
+	  <version>${jackson-2-version}</version>
+	</dependency>	 
+    <dependency>
+    	<groupId>com.fasterxml.jackson.dataformat</groupId>
+    	<artifactId>jackson-dataformat-yaml</artifactId>
+    	<version>${jackson-2-version}</version>
+    </dependency>
+<dependency>
+	<groupId>commons-httpclient</groupId>
+	<artifactId>commons-httpclient</artifactId>
+	<version>3.1</version>
+</dependency>
+<dependency>
+	<groupId>org.apache.httpcomponents</groupId>
+	<artifactId>httpmime</artifactId>
+	<version>4.5.1</version>
+</dependency>
+<dependency>
+	<groupId>commons-codec</groupId>
+	<artifactId>commons-codec</artifactId>
+	<version>1.10</version>
+</dependency>
+<dependency>
+        <groupId>org.rauschig</groupId>
+        <artifactId>jarchivelib</artifactId>
+        <version>0.5.0</version>
+</dependency>
+	  <dependency>
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <version>4.11</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.hamcrest</groupId>
+		  <artifactId>hamcrest-all</artifactId>
+		  <version>1.3</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.xmlmatchers</groupId>
+		  <artifactId>xml-matchers</artifactId>
+		  <version>1.0-RC1</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.freemarker</groupId>
+		  <artifactId>freemarker</artifactId>
+		  <version>2.3.20</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>net.sourceforge.htmlunit</groupId>
+		  <artifactId>htmlunit</artifactId>
+		  <version>2.14</version>
+	  </dependency>
+
+
+  </dependencies>
+  <build>
+  	<plugins>
+  	<!-- 
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-antrun-plugin</artifactId>
+			<version>1.8</version>
+			<executions>
+				<execution>
+					<phase>compile</phase>
+					<configuration>
+
+						<target name="perforceTag" unless="maven.test.skip">
+							<echo message="Tagging sources in Perforce with pom version ${project.artifactId}-${project.version}"/>
+							<property name="p4.user" value="${env.USER}" />
+							<property name="p4.passwd" value="" />
+							<property name="p4.port" value="perforce1.DerSalvador.com:1666" />
+							<property name="p4.client" value="srp06970lx" />
+
+							<taskdef name="p4jtag" classname="com.perforce.p4java.ant.tasks.TagTask" classpathref="maven.plugin.classpath"/>
+
+							<p4jtag
+									label="${project.artifactId}-${project.version}"
+									files="//DERSALVADOR/product/DERSALVADOR/deploymentautomation/MissingLinkProcessor/..."
+									/>
+
+						</target>
+
+					</configuration>
+					<goals>
+						<goal>run</goal>
+					</goals>
+				</execution>
+			</executions>
+			<dependencies>
+				<dependency>
+					<groupId>perforce.ant</groupId>
+					<artifactId>p4java</artifactId>
+					<version>2010.1.269249</version>
+				</dependency>
+				<dependency>
+					<groupId>perforce.ant</groupId>
+					<artifactId>p4ant</artifactId>
+					<version>2010.1.293250</version>
+				</dependency>
+			</dependencies>
+		</plugin>
+      -->
+
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-deploy-plugin</artifactId>
+			<version>2.8.2</version>
+			<configuration>
+				<skip>true</skip>
+			</configuration>
+		</plugin>
+
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-deploy-plugin</artifactId>
+			<version>2.7</version>
+			<configuration>
+				<skip>true</skip>
+			</configuration>
+		</plugin>
+
+		<plugin>
+			<groupId>org.sonatype.plugins</groupId>
+			<artifactId>nexus-staging-maven-plugin</artifactId>
+			<version>1.5.1</version>
+			<executions>
+				<execution>
+					<id>default-deploy</id>
+					<phase>deploy</phase>
+					<goals>
+						<goal>deploy</goal>
+					</goals>
+				</execution>
+			</executions>
+			<configuration>
+				<serverId>nexus</serverId>
+				<nexusUrl>http://localhost/maven-proxy/repository/dersalvador-releases/</nexusUrl>
+				<skipStaging>true</skipStaging>
+			</configuration>
+		</plugin>
+
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-antrun-plugin</artifactId>
+			<version>1.8</version>
+			<executions>
+				<execution>
+					<phase>compile</phase>
+					<configuration>
+
+						<target name="CopyResources">
+							<echo message="Copy Resources ${project.basedir}/localproperties to ${project.basedir}/src/main/resources/localproperties"/>
+							<copy todir="${project.basedir}/localproperties" >
+								<fileset dir="${project.basedir}/src/main/resources/localproperties" includes="*deliverylocationlookup*" />
+							</copy>
+							<echo message="Chmod 666 ${project.basedir}/localproperties/* "/>
+							<chmod perm="666">
+								<fileset dir="${project.basedir}/localproperties">
+									<include name="**/*"/>
+								</fileset>
+							</chmod>
+
+						</target>
+
+					</configuration>
+					<goals>
+						<goal>run</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+
+		<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>exec-maven-plugin</artifactId>
+			<version>1.2.1</version>
+			<executions>
+				<execution>
+					<goals>
+						<goal>java</goal>
+					</goals>
+				</execution>
+			</executions>
+			<configuration>
+				<mainClass>ch.dersalvador.MissingLinkProcessor.Processor</mainClass>
+				<arguments>
+					<argument>-c</argument>
+					<argument>${CONFIG_FILE}</argument>
+					<argument>-i</argument>
+					<argument>${NEXUS_PATH}</argument>
+					<argument>-o</argument>
+					<argument>${WORKDIR}</argument>
+					<argument>-u</argument>
+					<argument>true</argument>
+				</arguments>
+			</configuration>
+		</plugin>
+  	
+  		<!-- Set a compiler level -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+			<!-- Make this jar executable -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+				  <archive>
+				    <manifest>
+					<addClasspath>true</addClasspath>
+					<mainClass>ch.dersalvador.MissingLinkProcessor.Processor</mainClass>
+					<classpathPrefix>dependency-jars/</classpathPrefix>
+				    </manifest>
+				  </archive>
+				</configuration>
+			</plugin>
+			<!-- Copy project dependency -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.5.1</version>
+				<executions>
+				  <execution>
+					<id>copy-dependencies</id>
+					<phase>package</phase>
+					<goals>
+						<goal>copy-dependencies</goal>
+					</goals>
+					<configuration>
+					  <!-- exclude junit, we need runtime dependency only -->
+					  <includeScope>runtime</includeScope>
+					  <outputDirectory>${project.build.directory}/dependency-jars/</outputDirectory>
+					</configuration>
+				  </execution>
+				</executions>
+			</plugin>
+	</plugins> 
+	<pluginManagement>
+  <plugins>
+    <plugin>
+      <groupId>org.eclipse.m2e</groupId>
+      <artifactId>lifecycle-mapping</artifactId>
+      <version>1.0.0</version>
+      <configuration>
+        <lifecycleMappingMetadata>
+          <pluginExecutions>
+            <pluginExecution>
+              <pluginExecutionFilter>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <versionRange>[2.0,)</versionRange>
+                <goals>
+                  <goal>copy-dependencies</goal>
+                </goals>
+              </pluginExecutionFilter>
+              <action>
+                <execute />
+              </action>
+            </pluginExecution>
+          </pluginExecutions>
+        </lifecycleMappingMetadata>
+      </configuration>
+    </plugin>
+  </plugins>
+</pluginManagement>
+	 
+  </build>
+</project>
