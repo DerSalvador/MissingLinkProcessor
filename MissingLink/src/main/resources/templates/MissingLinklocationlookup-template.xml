@@ -1,0 +1,8 @@
+<deliveryLocationLookup application="{{APPLICATION_NAME}}" path="{{APPLICATION_PATH}}">
+	<localPropertyContainer deployable="{{LOGICAL_NAME}}" file="{{LOGICAL_REPO_NAME}}">
+		<targetPath>{{TARGET_PATH}}</targetPath>
+		<targetPathCreate>true</targetPathCreate>
+		<scanPlaceholders>true</scanPlaceholders>
+		<targetFileName></targetFileName>
+	</localPropertyContainer> 
+</deliveryLocationLookup>
