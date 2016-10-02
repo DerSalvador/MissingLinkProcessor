@@ -1,0 +1,69 @@
+{
+    "File": {
+        "ID": "304b67b9-d0ea-0c6a-c060-304b56940996",
+        "Path": "/home/michael/DerSalvador/DevOps/OpenSource/MissingLink/Appfile",
+        "Source": "",
+        "Application": {
+            "Name": "MissingLink",
+            "Type": "java",
+            "Detect": true,
+            "Dependencies": null
+        },
+        "Project": {
+            "Name": "MissingLink",
+            "Infrastructure": "MissingLink"
+        },
+        "Infrastructure": [
+            {
+                "Name": "MissingLink",
+                "Type": "aws",
+                "Flavor": "simple",
+                "Foundations": [
+                    {
+                        "Name": "consul",
+                        "Config": null
+                    }
+                ]
+            }
+        ],
+        "Customization": null,
+        "Imports": null
+    },
+    "Vertices": [
+        {
+            "File": {
+                "ID": "304b67b9-d0ea-0c6a-c060-304b56940996",
+                "Path": "/home/michael/DerSalvador/DevOps/OpenSource/MissingLink/Appfile",
+                "Source": "",
+                "Application": {
+                    "Name": "MissingLink",
+                    "Type": "java",
+                    "Detect": true,
+                    "Dependencies": null
+                },
+                "Project": {
+                    "Name": "MissingLink",
+                    "Infrastructure": "MissingLink"
+                },
+                "Infrastructure": [
+                    {
+                        "Name": "MissingLink",
+                        "Type": "aws",
+                        "Flavor": "simple",
+                        "Foundations": [
+                            {
+                                "Name": "consul",
+                                "Config": null
+                            }
+                        ]
+                    }
+                ],
+                "Customization": null,
+                "Imports": null
+            },
+            "Dir": "",
+            "NameValue": "MissingLink"
+        }
+    ],
+    "Edges": []
+}

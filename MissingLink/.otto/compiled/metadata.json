@@ -1,0 +1,1 @@
+{"app":{"version":1,"foundation_config":{"ServiceName":"MissingLink","ServicePort":0,"ServiceTags":null},"dev_dep_fragment_path":"/home/michael/DerSalvador/DevOps/OpenSource/MissingLink/.otto/compiled/app/dev-dep/Vagrantfile.fragment","foundation_results":null},"app_deps":{},"infra":null,"foundations":{"consul":null}}
